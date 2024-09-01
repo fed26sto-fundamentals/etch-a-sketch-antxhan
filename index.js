@@ -2,8 +2,8 @@ const gridDimensions = 540; // pixels
 
 function getGridSize() {
   const gridSize = prompt("Enter grid cells per side");
-  if (gridSize > 100) {
-    alert("100 is the maximum");
+  if (gridSize > 100 || gridSize < 1) {
+    alert("1 is the minimum and 100 is the maximum");
     return getGridSize();
   }
   return gridSize;
