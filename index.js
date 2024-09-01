@@ -1,4 +1,9 @@
 const gridDimensions = 540; // pixels
+let rgb = {
+  red: 0,
+  green: 0,
+  blue: 0,
+};
 
 function getGridSize() {
   const gridSize = prompt("Enter grid cells per side");
@@ -7,6 +12,21 @@ function getGridSize() {
     return getGridSize();
   }
   return gridSize;
+}
+
+function getRandomValue(color) {
+  const randomValue = Math.floor(Math.random() * 255);
+  if (rgb.color === randomValue) {
+    return getRandomValue(color);
+  }
+  return randomValue;
+}
+
+function setRandomRGB() {
+  for (color in rgb) {
+    const randomValue = getRandomValue(color);
+    rgb[color] = randomValue;
+  }
 }
 
 function createGrid(gridSize = 16) {
@@ -21,7 +41,8 @@ function createGrid(gridSize = 16) {
     cell.style.width = `${cellSize}px`;
     cell.style.height = `${cellSize}px`;
     cell.addEventListener("mouseover", () => {
-      cell.style.backgroundColor = "black";
+      setRandomRGB();
+      cell.style.backgroundColor = `rgb(${rgb.red}, ${rgb.green}, ${rgb.blue})`;
     });
     grid.appendChild(cell);
   }
