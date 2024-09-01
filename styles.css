@@ -1,3 +1,7 @@
+:root {
+  --border-clr: rgb(85, 85, 85);
+}
+
 *,
 *::before,
 *::after {
@@ -15,14 +19,11 @@ main {
 }
 
 .grid {
-  outline: 1px solid red;
+  outline: 1px solid var(--border-clr);
   display: flex;
   flex-wrap: wrap;
 }
 
 .cell {
-  outline: 1px solid black;
-  &:hover {
-    background-color: black;
-  }
+  border: 1px solid var(--border-clr);
 }

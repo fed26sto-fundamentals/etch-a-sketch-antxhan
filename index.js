@@ -20,6 +20,9 @@ function createGrid(gridSize = 16) {
     const cellSize = gridDimensions / gridSize;
     cell.style.width = `${cellSize}px`;
     cell.style.height = `${cellSize}px`;
+    cell.addEventListener("mouseover", () => {
+      cell.style.backgroundColor = "black";
+    });
     grid.appendChild(cell);
   }
 }
