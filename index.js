@@ -29,6 +29,13 @@ function setRandomRGB() {
   }
 }
 
+function setOpacity(cell) {
+  if (cell.style.opacity === 0) {
+    return;
+  }
+  cell.style.opacity = cell.style.opacity - 0.1;
+}
+
 function createGrid(gridSize = 16) {
   const grid = document.querySelector("div.grid");
   grid.innerHTML = null;
@@ -40,7 +47,10 @@ function createGrid(gridSize = 16) {
     const cellSize = gridDimensions / gridSize;
     cell.style.width = `${cellSize}px`;
     cell.style.height = `${cellSize}px`;
-    cell.addEventListener("mouseover", () => {
+    cell.style.backgroundColor = "white";
+    cell.style.opacity = 1;
+    cell.addEventListener("mouseover", (e) => {
+      setOpacity(e.target);
       setRandomRGB();
       cell.style.backgroundColor = `rgb(${rgb.red}, ${rgb.green}, ${rgb.blue})`;
     });
