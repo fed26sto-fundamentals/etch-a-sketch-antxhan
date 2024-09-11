@@ -1,0 +1,30 @@
+:root {
+  --border-clr: rgb(85, 85, 85);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 5rem;
+}
+
+.grid {
+  outline: 1px solid var(--border-clr);
+  display: flex;
+  flex-wrap: wrap;
+  background-color: black;
+}
+
+.cell {
+  border: 1px solid var(--border-clr);
+}
